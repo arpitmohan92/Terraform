@@ -10,7 +10,8 @@ resource "aws_launch_template" "prod_template" {
       delete_on_termination = true
       volume_type = "gp2"
     }
-    
+  }
+  
   cpu_options {
     core_count       = 1
     threads_per_core = 1
