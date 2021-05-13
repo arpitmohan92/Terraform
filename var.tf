@@ -1,0 +1,9 @@
+variable "region" {
+
+}
+
+variable "cidr" {
+
+}
+
+
