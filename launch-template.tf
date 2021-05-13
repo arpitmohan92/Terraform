@@ -47,6 +47,6 @@ resource "aws_launch_template" "prod_template" {
       Name = "Prod-App"
     }
   }  
-    
+}    
     
     
