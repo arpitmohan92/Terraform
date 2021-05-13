@@ -39,7 +39,7 @@ resource "aws_launch_template" "prod_template" {
   
   network_interfaces {
     delete_on_termination = true
-    security_groups = aws_security_group.allow_traffic_from_lb.id
+    security_groups = "aws_security_group.allow_traffic_from_lb.id"
     subnet_id = "aws_subnet.AppServerSub1.id"
   } 
   
