@@ -27,7 +27,8 @@ resource "aws_launch_template" "prod_template" {
     
   iam_instance_profile {
     arn = "arn:aws:iam::301424319303:instance-profile/S3FullAccess"
-      
+  }
+  
   image_id = "ami-077e31c4939f6a2f3"
     
   instance_initiated_shutdown_behavior = "terminate"
@@ -40,7 +41,8 @@ resource "aws_launch_template" "prod_template" {
     delete_on_termination = true
     security_groups = aws_security_group.allow_traffic_from_lb.id
     subnet_id = [aws_subnet.AppServerSub1.id, aws_subnet.AppServerSub2.id]
-    
+  } 
+  
   tag_specifications {
     resource_type = "instance"
 
