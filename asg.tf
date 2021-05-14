@@ -31,7 +31,6 @@ resource "aws_autoscaling_notification" "prod_notifications" {
     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
   ]
-  }
   
   topic_arn = aws_sns_topic.prod_sns.arn
 }
