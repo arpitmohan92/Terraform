@@ -7,20 +7,18 @@ resource "aws_autoscaling_group" "Prod-asg" {
   launch_template {
     id      = aws_launch_template.prod_template.id
     version = "$Latest"
-    
-  health_check_type = "ELB"
-  
-  target_group_arns = "aws_lb_target_group.Prod-Tg.arn"
-  
-  vpc_zone_identifier = ["aws_subnet.AppServerSub1.id", "aws_subnet.AppServerSub2.id"]
-  
-  tag {
+     tag {
     key                 = "Name"
     value               = "Prod-App"
     propagate_at_launch = true
     }
   }
-}
+  
+  health_check_type = "ELB"
+  
+  target_group_arns = "aws_lb_target_group.Prod-Tg.arn"
+  
+  vpc_zone_identifier = ["aws_subnet.AppServerSub1.id", "aws_subnet.AppServerSub2.id"]
 
 resource "aws_autoscaling_notification" "prod_notifications" {
   group_names = [aws_autoscaling_group.Prod-asg.name]
